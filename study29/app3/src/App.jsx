@@ -57,10 +57,10 @@ const App = () => {
         
         // 체크 필요!!!
         // JWT Header 디코딩
-        const headerBase64 = token.split(".")[0]
-        const headerJson = JSON.parse(
+        const payloadBase64 = token.split(".")[0]
+        const payload = JSON.parse(
           decodeURIComponent(
-            atob(headerBase64)
+            atob(payloadBase64)
             .split("")
             .map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
             .join("")
@@ -71,6 +71,7 @@ const App = () => {
         // 1. npm install jwt-decode
         // 2. import jwtDecode from 'jwt-decode' 
         // 3. const header = jwtDecode(token, { header: true })
+        // 4. const payload = jwtDecode(token)
 
         // 만료 체크를 위해 선언
         const now = Math.floor(Date.now() / 1000)
@@ -80,8 +81,8 @@ const App = () => {
           return
         }
         
-        setAlgorithm(headerJson.alg)
-        setType(headerJson.typ)
+        setAlgorithm(payload.alg)
+        setType(payload.typ)
 
         setNo(res.data.no)
         setName(res.data.name)
