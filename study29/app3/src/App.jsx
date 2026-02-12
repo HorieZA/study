@@ -74,6 +74,7 @@ const App = () => {
         // 4. const headerJson = jwtDecode(token)
 
         // 만료 체크를 위해 선언
+        // payload가 아닌 headerJson로 수정... headerJson를 payload로 선언한걸로 착각함;;; 
         const now = Math.floor(Date.now() / 1000)
         if (headerJson.exp && headerJson.exp < now) {
           alert("토큰이 만료되었습니다. 다시 코드 발급을 진행해주세요.")
