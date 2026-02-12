@@ -58,9 +58,9 @@ const App = () => {
         // 체크 필요!!!
         // JWT Header 디코딩
         const payloadBase64 = token.split(".")[0]
-        const payload = JSON.parse(
+        const headerJson = JSON.parse(
           decodeURIComponent(
-            atob(payloadBase64)
+            atob(headerBase64)
             .split("")
             .map(c => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
             .join("")
@@ -71,19 +71,19 @@ const App = () => {
         // 1. npm install jwt-decode
         // 2. import jwtDecode from 'jwt-decode' 
         // 3. const header = jwtDecode(token, { header: true })
-        // 4. const payload = jwtDecode(token)
+        // 4. const headerJson = jwtDecode(token)
 
         // 만료 체크를 위해 선언
         const now = Math.floor(Date.now() / 1000)
-        if (payload.exp && payload.exp < now) {
+        if (headerJson.exp && headerJson.exp < now) {
           alert("토큰이 만료되었습니다. 다시 코드 발급을 진행해주세요.")
           reset()
           return
         }
         
-        setAlgorithm(payload.alg)
-        setType(payload.typ)
-
+        setAlgorithm(headerJson.alg)
+        setType(headerJson.typ)
+        
         setNo(res.data.no)
         setName(res.data.name)
         alert(`${res.data.name}님 안녕하세요.\n반갑습니다.`)
