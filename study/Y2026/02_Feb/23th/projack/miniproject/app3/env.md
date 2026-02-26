@@ -1,2 +1,0 @@
-# VITE_APP_FASTAPI_URL=http://192.168.0.171:8301
-VITE_APP_FASTAPI_URL=http://quadecologics.cloud:8301

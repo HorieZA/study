@@ -1,7 +1,0 @@
-FrontEnd	>>		BackEnd		>>		Storage
-HTML		URL		PYTHON		conn	MariaDB
-CSS			HTTP	FastAPI
-JAVASRIPT			MariaDB
-NoedJS
-REACT
-

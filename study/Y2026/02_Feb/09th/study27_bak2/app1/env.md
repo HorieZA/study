@@ -1,9 +1,0 @@
-MARIADB_USER=nyj
-MARIADB_PASSWORD=nyj
-MARIADB_HOST=db.quadecologics.cloud
-MARIADB_DATABASE=edu
-MARIADB_PORT=5053
-REACT_URL=http://localhost:5173
-SECRET_KEY=your-extremely-secure-random-secret-key
-ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=30
