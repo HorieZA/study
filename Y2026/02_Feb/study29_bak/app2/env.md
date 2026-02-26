@@ -1,3 +1,0 @@
-MAIL_USERNAME=본인Gmail계정
-MAIL_PASSWORD=본인계정PW
-MAIL_FROM=본인Gmail계정
