@@ -1,0 +1,13 @@
+KAFKA_TOPIC=miniProject2
+KAFKA_SERVER=kafka:9094
+
+MAIL_USERNAME=wanyj2002@gmail.com
+MAIL_PASSWORD=yzirhvmbjvimtwjh
+MAIL_FROM=wanyj2002@gmail.com
+MAIL_PORT=857
+MAIL_SERVER=smtp.gmail.com
+MAIL_FROM_NAME=Team3
+
+REDIS_HOST=redis
+REDIS_PORT=6379
+REDIS_DB=0
