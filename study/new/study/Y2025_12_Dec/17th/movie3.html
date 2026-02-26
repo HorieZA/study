@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VueMovie</title>
+	<link rel="stylesheet" type="text/css" href="common.css" />
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Fira Sans", sans-serif;
+		}
+
+		body {
+			background-color: #35495E;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		header h1 {
+			color: #fff;
+			font-size: 28px;
+		}
+
+		header h1 span {
+			color: #42B883;
+		}
+
+		.home .feature-card {
+            position: relative;
+        }
+
+        .home .feature-card .featured-img {
+            display: block;
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .home .feature-card .detail {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 16px;
+            z-index: 1;
+        }
+
+        .home .feature-card .detail h3 {
+            color: #FFF;
+            margin-bottom: 16px;
+        }
+
+        .home .feature-card .detail p {
+            color: #FFF;
+        }
+
+		.home .movie-detail {
+			padding: 16px;
+		}
+
+		.home .movie-detail h2 {
+			color: #FFF;
+			font-size: 28px;
+			font-weight: 600;
+			margin-bottom: 16px;
+		}
+
+		.home .movie-detail span {
+			margin: 0 16px;
+			padding: 10px;
+			border-radius: 10px;
+			background-color: #42B883;
+			color: #FFF;
+			font-size: 18px;
+		}
+
+		.home .movie-detail .featured-img {
+			display: block;
+			max-width: 200px;
+			margin-bottom: 16px;
+		}
+
+		.home .movie-detail p {
+			color: #FFF;
+			font-size: 18px;
+			line-height: 1.4;
+		}
+
+		.home .movie-detail .text-center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<a href="index(Movie).html">
+			<h1><span>AI</span>Movies</h1>
+		</a>
+	</header>
+	<main class="home">
+
+		<div class="movie-detail">
+			<div>
+				<h2>SPY×FAMILY Season 3<span>movie</span></h2>
+				<p>2023년 4분기, 2024년 1분기</p>
+				<p>사이토 케이이치로, 매드하우스</p>
+				<!-- <br /> -->
+			</div>
+		</div>
+
+		<div class="feature-card">
+			<div>
+				<img src="https://thumbnail.laftel.net/items/full/ec327547-3f22-43ee-a1b1-8fe3a9b49ae6.jpg"
+					alt="장송의 프리렌 Poster" class="featured-img">
+				<div class="detail">
+					<H3>장송의 프리렌</H3>
+					<p>용사 힘멜 일행과 함께 10년에 걸친 모험 끝에 마왕을 물리치고 세계에 평화를 가져온 마법사 프리렌. 천 년을 넘게 사는 엘프인 그녀는 힘멜 일행과 재회를 약속하고 혼자 여행을 떠난다. 그로부터 50년 후 프리렌은 힘멜을 찾아갔지만 50년 전과 달라진 게 없는 그녀에 비해 힘멜은 늙었고 수명이 얼마 남아있지 않았다. 그 후 죽음을 맞이한 힘멜을 보고 지금까지 '인간을 아는' 일을 하지 않았던 것을 후회하고 자신을 반성한 프리렌은 '인간을 알기 위한' 여행을 떠난다. 그 여로에는 다양한 사람들과의 만남, 다양한 사건들이 기다리고 있었는데──</p>
+				</div>
+			</div>
+		</div>
+		<div class="movie-detail">
+			<br />
+			<hr><br />
+			<div class="text-center">
+				<h2>선택한 내용이 없습니다.</h2>
+				<p>다시 검색하세요.</p>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

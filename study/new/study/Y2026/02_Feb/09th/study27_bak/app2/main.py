@@ -1,0 +1,63 @@
+from fastapi import FastAPI
+from kafka import KafkaConsumer
+from settings import settings
+from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
+import threading, asyncio ,json, random, redis, string
+
+app = FastAPI()
+
+conf = ConnectionConfig(
+  MAIL_USERNAME = settings.mail_username,
+  MAIL_PASSWORD = settings.mail_password,
+  MAIL_FROM = settings.mail_from,
+  MAIL_PORT = settings.mail_port,
+  MAIL_SERVER = settings.mail_server,
+  MAIL_FROM_NAME = settings.mail_from_name,
+  MAIL_STARTTLS = settings.mail_starttls,
+  MAIL_SSL_TLS = settings.mail_ssl_tls,
+  USE_CREDENTIALS = settings.use_credentials,
+  VALIDATE_CERTS = settings.validate_certs
+)
+
+client = redis.Redis(
+    host="localhost",
+    port=6379,
+    db=0
+  )
+print(type(client))
+
+async def simple_send(email: str):
+  id = ''.join(random.choices(string.digits, k=6))
+  client.setex(id, 60*3, "login")
+  html = f"""
+    <h1>Login Service</h1>
+    <p>{id}</p>
+  """
+
+  message = MessageSchema(
+    subject="일회용 인증 코드 발급",
+    recipients=[ email ],
+    body=html,
+    subtype=MessageType.html)
+
+  fm = FastMail(conf)
+  await fm.send_message(message)
+
+def consumer():
+  cs = KafkaConsumer(
+    settings.kafka_topic, 
+    bootstrap_servers=settings.kafka_server, 
+    enable_auto_commit=True,
+    value_deserializer=lambda v: json.loads(v.decode("utf-8"))
+  )
+  for msg in cs:
+    asyncio.run(simple_send(msg.value["email"]))
+
+@app.on_event("startup")
+def startConsumer():
+  thread = threading.Thread(target=consumer, daemon=True)
+  thread.start()
+
+@app.get("/")
+def root():
+  return {"msg": "Consumer"}
