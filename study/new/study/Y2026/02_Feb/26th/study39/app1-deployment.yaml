@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1-container
+        image: app:1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: APP1_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: app1-config
+              key: APP1_PATH
+        - name: APP2_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: app1-config
+              key: APP2_PATH
+        - name: APP1_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app1-config
+              key: APP1_URL
+        - name: APP2_URL
+          valueFrom:
+            configMapKeyRef:
+              name: app1-config
+              key: APP2_URL
+
+
+      #   volumeMounts:
+      #   - name: app1-env
+      #     mountPath: "/etc/config"
+      # volumes:
+      # - name: app1-env
+      #   configMap:
+      #     name: app1-config
+
+# 등록하기
+# kubectl create -f app1-deployment.yaml
+
+# 삭제하기
+# kubectl delete -f app1-deployment.yaml
+
+# 확인하기
+# kubectl get deployments
