@@ -1,0 +1,5 @@
+index 참조
+1. w3schools에서 소개된 방식은 Denclarative Mode이며,
+import값을 
+"import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';"에서
+"react-router-dom"이 아닌 "react-router"로 설정해야함

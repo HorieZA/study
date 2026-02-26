@@ -1,0 +1,12 @@
+github 연동방법
+git clone https://github.com/Turn-Sushi/test.git
+=> git clone 생성된 github URL
+
+팀장이(작성자가) 터미널에서 작성해야 하는 내용
+"연습" => 변경된 내용등을 입력해주면 될것 같음
+git add .
+git commit -m "연습"
+git push
+
+팀원이(받을 인원) 터미널에서 작성해야 하는 내용
+git pull
