@@ -1,7 +1,0 @@
-1. 설치할 폴더의 터미널을 열어서 아래와 같이 내용 입력
-npm i react-router
-이후 package.json 파일을 열고,
-"dependencies"의 "react-router": "^7.11.0"가 표시되는지 확인
-있으면 설치됨
-
-2. 
