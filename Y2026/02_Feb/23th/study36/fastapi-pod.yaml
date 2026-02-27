@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: fastapi
+
+spec:
+  containers:
+  - image: backend
+    name: fastapi
+    ports:
+    - containerPort: 8000
+    imagePullPolicy: IfNotPresent
+
+# mariadb Kubernetes(k8s) 실행하기
+# kubectl apply -f fastapi-pod.yaml
+
+# 최종 확인
+# kubectl get pods
+
+# 최종 확인2
+# kubectl get pod fastapi -o wide
+
+# 포트 설정
+# kubectl port-forward pod/fastapi 8000:8000
+
+# ping test를 위한 설치
+# apt update
+# apt install -y iputils-ping

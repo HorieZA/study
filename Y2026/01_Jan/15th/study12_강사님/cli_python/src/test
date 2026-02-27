@@ -1,0 +1,6 @@
+def list(args):
+  data = getData()
+  line1 = "=" * 50
+  line2 = "=" * 50
+  if len(data["words"]) > 0:
+    print("연습하다 멈춤")

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>폼 태그</title>
+        <style>
+        * {box-sizing: border-box;}
+        body {margin: 30px; padding: 0;}
+        .title {background-color: #09886cce; color: white; font-size: 25px;}
+        .inp {width: 100%; padding: 10px 0;}
+        .inp2 {width: 100%; padding: 20px 0;}
+        .lav {color: grey;}
+        button {background-color: #09886cce; padding: 10px 40px; border: 0; font-weight: bold; color: white;}
+        td {border: 0;}
+        .cell_padding {padding-top: 5px; padding-left: 20px;}
+        </style>
+    </head>
+    <body>
+    <table border="1" style="width: 100%;">
+    <tr class="title">
+      <td class=".cell_padding" colspan="2"><label>InputForm</label></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="lav">
+        <div>
+            <label for="name">Name</label>
+            <br/>
+            <input class="inp" type="text" name="name" id="name" required>    
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <br/>
+            <input class="inp" type="text" name="email" id="email" required>    
+        </div>
+        <div>
+            <label for="Sub">Subject</label>
+            <br/>
+            <input class="inp2" type="text" name="Sub" id="Sub" required>    
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+            <input type="checkbox" name="checkbox" id="c1" checked/>
+            <label for="c1">Milk</label>
+        </div>
+        <div>
+            <input type="checkbox" name="checkbox" id="c2"/>
+            <label for="c2">Sugar</label>
+        </div>
+        <div>
+            <input type="checkbox" name="checkbox" id="c3" disabled/>
+            <label for="c3">Lemon(Disabled)</label>
+        </div>
+      </td>
+      <td>
+        <div>
+            <input type="radio" name="radio" id="r1" checked/>
+            <label for="r1">Male</label>
+        </div>
+        <div>
+            <input type="radio" name="radio" id="r2"/>
+            <label for="r2">Female</label>
+        </div>
+        <div>
+            <input type="radio" name="radio" id="r3" disabled/>
+            <label for="r3">Don't know(Disabled)</label>
+        </div>
+      </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="submit">Send ></button>
+        </td>
+    </tr>
+  </table>
+</body>
+</html>

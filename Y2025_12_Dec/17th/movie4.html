@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VueMovie</title>
+	<link rel="stylesheet" type="text/css" href="common.css" />
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: "Fira Sans", sans-serif;
+		}
+
+		body {
+			background-color: #35495E;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		header h1 {
+			color: #fff;
+			font-size: 28px;
+		}
+
+		header h1 span {
+			color: #42B883;
+		}
+
+		.home .feature-card {
+            position: relative;
+        }
+
+        .home .feature-card .featured-img {
+            display: block;
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .home .feature-card .detail {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 16px;
+            z-index: 1;
+        }
+
+        .home .feature-card .detail h3 {
+            color: #FFF;
+            margin-bottom: 16px;
+        }
+
+        .home .feature-card .detail p {
+            color: #FFF;
+        }
+
+		.home .movie-detail {
+			padding: 16px;
+		}
+
+		.home .movie-detail h2 {
+			color: #FFF;
+			font-size: 28px;
+			font-weight: 600;
+			margin-bottom: 16px;
+		}
+
+		.home .movie-detail span {
+			margin: 0 16px;
+			padding: 10px;
+			border-radius: 10px;
+			background-color: #42B883;
+			color: #FFF;
+			font-size: 18px;
+		}
+
+		.home .movie-detail .featured-img {
+			display: block;
+			max-width: 200px;
+			margin-bottom: 16px;
+		}
+
+		.home .movie-detail p {
+			color: #FFF;
+			font-size: 18px;
+			line-height: 1.4;
+		}
+
+		.home .movie-detail .text-center {
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<a href="index(Movie).html">
+			<h1><span>AI</span>Movies</h1>
+		</a>
+	</header>
+	<main class="home">
+
+		<div class="movie-detail">
+			<div>
+				<h2>암살자인 내 스테이스가 용사보다도 훨씬 강한데요<span>movie</span></h2>
+				<p>2025년 4분기</p>
+				<p>하바라 노부요시, 선라이즈</p>
+				<!-- <br /> -->
+			</div>
+		</div>
+
+		<div class="feature-card">
+			<div>
+				<img src="https://thumbnail.laftel.net/items/full/9f018be0-79a1-4cca-8a15-9df6c4b1cdf3.jpg"
+					alt="암살자 스테이스 Poster" class="featured-img">
+				<div class="detail">
+					<H3>암살자인 내 스테이스가 용사보다도 훨씬 강한데요</H3>
+					<p>반 친구들과 함께 이세계에 소환된 고등학생 오다 아키라. 소환으로 반 친구들 전원에게 치트 능력이 부여되는 가운데, 아키라는 타고난 존재감의 옅음 때문인지 평범한 '암살자'의 능력을 얻는다. 하지만, 평범한 '암살자'인 자신의 능력치가 최강의 직업인 '용사'를 가볍게 능가하고 있었는데──?! 그리고, 소환의 주모자인 국왕의 언동에 의심을 품게 된 아키라는 자신의 존재를 계속 숨기며 그 음모를 파헤치려 했지만 반대로 누명을 쓰게 되어 왕국에 쫓기는 몸이 되고 만다. 국왕에 대한 복수를 맹세한 아키라는 도망쳐 들어간 전인 미답의 던전 심층에서 엘프 소녀 아멜리아를 만나게 되는데──... 이것은 '암살자'의 능력을 얻은 소년이, 엘프 소녀와 만나 진정한 '암살자'가 되기까지의 이야기이다.</p>
+				</div>
+			</div>
+		</div>
+		<div class="movie-detail">
+			<br />
+			<hr><br />
+			<div class="text-center">
+				<h2>선택한 내용이 없습니다.</h2>
+				<p>다시 검색하세요.</p>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>
