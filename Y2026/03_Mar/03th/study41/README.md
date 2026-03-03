@@ -199,3 +199,12 @@ SELECT 'GN0700' AS `code`, '트로트' AS `name`
 UNION ALL
 SELECT 'GN0800' AS `code`, '포크/블루스' AS `name`;
 ```
+- 장르 코드명 연결하여 불러오기
+```sql
+SELECT n.`name`, s.`code`, COUNT(*) AS cnt
+FROM edu.`melon` AS s
+INNER JOIN edu.`category` AS n
+ON (s.`code` = n.`code`)
+GROUP BY n.`name`, s.`code`
+ORDER BY 2;
+```
