@@ -1,0 +1,31 @@
+# 이미지 만들기 위한 설계도인 dockerfile
+FROM ubuntu:24.04
+
+RUN apt update
+RUN apt install -y nginx
+
+# 우분투는 ver에 있음
+COPY ./nginx/index.html /var/www/html/index.nginx-debian.html
+# COPY ./nginx/index.html /usr/share/nginx/html/index.html
+
+EXPOSE 80
+
+# 자동으로 키기 위한 명령어
+CMD [ "nginx","-g", "daemon off;" ]
+
+# 작성이 완료되면 아래 명령어 입력
+# CMD 없이 진행
+# docker build -t react:0.0.1 .
+# docker run -d -p 80:80 --name web web:0.0.1 .
+# 기존 이미지 삭제 후 COPY 없고 CMD 생성 후 진행
+# docker rm -f web
+# docker build -t react:0.1 .
+# docker run -d -p 80:80 --name web web:0.1 .
+# 기존 이미지 삭제 후 COPY 생성 후 진행
+# docker rm -f web
+# docker build -t react:1 .
+# docker run -d -p 80:80 --name web web:1 .
+# 기존 이미지 삭제 후 COPY의 경로를 우분투 전용으로 수정후 진행
+# docker rm -f web
+# docker build -t react:2 .
+# docker run -d -p 80:80 --name web web:2 .

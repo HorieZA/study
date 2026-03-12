@@ -1,0 +1,15 @@
+body {
+  background-color: #f8f9fa;
+}
+.word-container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.word-item.completed span {
+  text-decoration: line-through;
+  color: #6c757d;
+}

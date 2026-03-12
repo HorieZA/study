@@ -1,0 +1,44 @@
+노트 만들기
+https://www.notion.so/ai
+
+Node 자료는 Node.js 페이지의 File system 참조
+https://nodejs.org/docs/latest/api/fs.html
+
+프로젝트 초기화 
+=> 데이터가 있는 폴더에서 하면 덥어씌어지기만 됨(기존 데이터는 삭제되지 않음)
+=> 신규 프로젝트 만들기 최초 작업
+
+=> Node
+1. 초기화
+npm init -y
+dir
+2. 폴더 생성
+src, data, imge
+3. 파일 생성
+data\memo.json
+src\index.js
+4. 소스 수정
+package.json을 열어서 다음과 같이 수정 및 입력
+4-1.수정
+"type": "module"
+4-2."scripts" 안에 입력
+"dev": "node src/index.js",
+5. 실행 명령어
+npm run dev
+6. URL로 들어가서 아래항목 설치
+https://www.npmjs.com/package/commander
+npm i commander
+
+=> python
+1. 초기화
+uv init .
+dir
+2. 폴더 생성
+src, data, imge
+3. 파일 생성
+data\memo.json
+src\index.py
+4. 소스 수정
+
+5. 실행 명령어
+uv run src/index.py 

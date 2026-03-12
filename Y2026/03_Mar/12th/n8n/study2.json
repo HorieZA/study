@@ -1,0 +1,122 @@
+{
+  "name": "study2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        -80
+      ],
+      "id": "a0e3cfb7-7ddd-40aa-8ace-428e31ef51b9",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "n8n",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "title",
+              "value": "연습"
+            },
+            {
+              "column": "content",
+              "value": "내용 입력"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.5,
+      "position": [
+        -352,
+        -176
+      ],
+      "id": "f3c450a2-e354-45b7-9300-caf26515d6b1",
+      "name": "Insert rows in a table",
+      "credentials": {
+        "mySql": {
+          "id": "J1WhCJd6PsNopytx",
+          "name": "MySQL account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "n8n",
+          "mode": "list",
+          "cachedResultName": "n8n"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "title",
+              "condition": "LIKE",
+              "value": "연%"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.5,
+      "position": [
+        -352,
+        32
+      ],
+      "id": "6e473c0f-f61c-469e-ae50-d76ca9a3205a",
+      "name": "Select rows from a table",
+      "credentials": {
+        "mySql": {
+          "id": "J1WhCJd6PsNopytx",
+          "name": "MySQL account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Insert rows in a table",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "4e91af9a-fea3-4973-a557-542de0558ab5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a8f05ce378d2c8a1985aff054735f2b87482025e256b72257388e7fa7904e7f6"
+  },
+  "id": "eaOmW0ybOMsJYi0h",
+  "tags": []
+}

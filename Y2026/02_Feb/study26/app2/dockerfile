@@ -1,0 +1,26 @@
+# fastapi-mail를 이용한 Consumer + Mail 백앤드
+FROM python:3.13.11
+
+WORKDIR /app
+
+# uv 설치
+RUN pip install --no-cache-dir uv
+
+# 의존성 파일 복사
+COPY pyproject.toml uv.lock* ./
+
+# 의존성 설치
+RUN uv sync
+
+# 앱 코드 복사
+COPY . .
+
+# 포트를 8002으로 설정 
+EXPOSE 8002
+
+CMD ["uv", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002"]
+
+# dockerfile은 백앤드 폴더 안에 저장하고 작성이 완료되면 아래 명령어 백앤드 폴더 터미널에서 입력 예정
+# docker build -t fastapi:0.1 .
+# 이후 컨테이너 생성 및 실행
+# docker run -d -p 80:80 --name web fastapi:0.1

@@ -1,0 +1,1 @@
+VITE_APP_FASTAPI_URL=http://localhost:5173

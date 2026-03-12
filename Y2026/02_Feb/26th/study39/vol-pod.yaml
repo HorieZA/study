@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: local-disk-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:1.28
+      ports:
+      - containerPort: 80
+      volumeMounts:
+      - mountPath: /usr/share/nginx/html
+        name: local-vol
+  volumes:
+    - name: local-vol
+      persistentVolumeClaim:
+        claimName: local-pvc
+      # hostPath:
+      #   path: /run/desktop/mnt/host/c/IDE/workspaces/WEB_STUDY-study/study/Y2026/02_Feb/26th/study39/html
+      #   type: DirectoryOrCreate
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: local-disk-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx
+
+# 등록하기
+# kubectl create -f vol-pod.yaml
+
+# 삭제하기
+# kubectl delete -f vol-pod.yaml
+
+# 확인하기
+# kubectl get configmaps

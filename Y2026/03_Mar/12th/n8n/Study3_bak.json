@@ -1,0 +1,368 @@
+{
+  "name": "Study3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1bf33433-f2f5-4580-92fa-36198b293879",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/shellfolders",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Test",
+          "mode": "list",
+          "cachedResultName": "Test",
+          "cachedResultUrl": "https://github.com/shellfolders/Test"
+        },
+        "filePath": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}.md",
+        "fileContent": "## 오늘은 n8n이 다 하는 날",
+        "commitMessage": "n8n 연습"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        -160
+      ],
+      "id": "9a2024d1-5569-4b89-a182-9027785d3fce",
+      "name": "파일 생성",
+      "webhookId": "d29857fa-63f6-405d-bb94-6a260529f69f",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/shellfolders",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Test",
+          "mode": "list",
+          "cachedResultName": "Test",
+          "cachedResultUrl": "https://github.com/shellfolders/Test"
+        },
+        "title": "=## {{ $now.format('yyyy-MM-dd HH:mm:ss') }}",
+        "body": "당신의 할 일은 python으로 완벽한 서비스 프로그램을 완성 하는 것입니다.",
+        "labels": [],
+        "assignees": []
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        48
+      ],
+      "id": "d7714632-9f5c-40f6-93b3-9e4ccb243855",
+      "name": "이슈 생성",
+      "webhookId": "ca1d5c39-1b42-48c8-a0bd-65b8f2bb1257",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "organization",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/ESG-EDU",
+          "mode": "url"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        240
+      ],
+      "id": "baad176a-e12b-41c0-a416-b1f50eb7f910",
+      "name": "organization 저장소 가져오기",
+      "webhookId": "7f373730-0194-4932-a3fd-06abbc7cb7aa",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "repository",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/shellfolders",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Test",
+          "mode": "list",
+          "cachedResultName": "Test",
+          "cachedResultUrl": "https://github.com/shellfolders/Test"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        480
+      ],
+      "id": "aa681826-e72b-472a-a81c-6c3c30bdb663",
+      "name": "Get a repository",
+      "webhookId": "17a1e21b-2513-4b3f-bba8-a5310f8a4bce",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "list",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/shellfolders",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Test",
+          "mode": "list",
+          "cachedResultName": "Test",
+          "cachedResultUrl": "https://github.com/shellfolders/Test"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        672
+      ],
+      "id": "0ef74c4d-28ab-478e-a38d-11938f803e7a",
+      "name": "List files",
+      "webhookId": "88017d2a-adfc-425b-9aa8-0c191a4b2c38",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/shellfolders",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Test",
+          "mode": "list",
+          "cachedResultName": "Test",
+          "cachedResultUrl": "https://github.com/shellfolders/Test"
+        },
+        "filePath": "={{ $json.path }}",
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        416,
+        672
+      ],
+      "id": "96725129-dc3a-49df-9e21-259eea525d5a",
+      "name": "Get a file",
+      "webhookId": "96ad0ad7-e35d-484f-b9ca-c01642544c81",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        624,
+        672
+      ],
+      "id": "4b7e3afb-77d5-4740-9c98-add65047b8c6",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.data += \"\\n - 수정 추가\";\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        832,
+        672
+      ],
+      "id": "ae2a730f-a752-4e7a-b13f-29d9ffbf7bf8",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/shellfolders",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "Test",
+          "mode": "list",
+          "cachedResultName": "Test",
+          "cachedResultUrl": "https://github.com/shellfolders/Test"
+        },
+        "filePath": "={{ $('Get a file').item.json.path }}",
+        "fileContent": "={{ $json.data }}",
+        "commitMessage": "={{ $now.format('yyyy-MM-dd') }} 내용 추가"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1040,
+        672
+      ],
+      "id": "fac5d00e-3aa3-4cc2-8905-92bd1f4bd9ad",
+      "name": "Edit a file",
+      "webhookId": "aeadf555-e130-453a-8be6-14a3aed1b3d8",
+      "credentials": {
+        "githubApi": {
+          "id": "ge807Jy2npNw5uEV",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "파일 생성",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "이슈 생성",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "organization 저장소 가져오기",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get a repository",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "List files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List files": {
+      "main": [
+        [
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Edit a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "571467da-bc3f-4a8f-9900-51e1aa7eee2e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "05a0606f38c04584e4129a7e3c0f0f6351f090a5ad2dd7fd100324fb6c0361fd"
+  },
+  "id": "ap7qynBDuzGG9Xi6",
+  "tags": []
+}
