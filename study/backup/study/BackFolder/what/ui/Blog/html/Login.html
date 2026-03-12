@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<style>
+		main .form {
+			flex-direction: row;
+		}
+		main .form .d-left {
+			width: 100%;
+			padding: 0 1rem;
+		}
+		main .form .d-left .form-group {
+			margin-top: 0.5rem;
+			display: flex;
+			align-items: center;
+		}
+		main .form .d-left .form-group .form-label {
+			width: 70px;
+		}
+		main .form .d-left .form-group .form-control {
+			width: calc(100% - 70px);
+		}
+		main .form .d-right {
+			/* width: 150px; */
+			display: flex;
+			align-content: center;
+		}
+		main .form .d-right .btn {
+			width: calc(100% - 2rem);
+			border: none;
+			outline: none;
+			color: #FFF;
+			background: #222938;
+			font-size: 1rem;
+			padding: 0.5rem 0;
+			margin: 0.5rem 1rem 1rem 1rem;
+			border-radius: 0.375rem;
+			cursor: pointer;
+		}
+		main .form .d-right .btn:hover {
+			background: #000;
+			box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="nav nav-left">
+			<img src="../../images/account.svg" alt="logo" class="logo">
+		</div>
+		<div class="nav">
+			<a href="Home.html">
+				<h1>SHELL<span>BLOG</span></h1>
+			</a>
+		</div>
+		
+		<div class="nav nav-right" onclick="location.href = 'Login.html';">
+			<img src="../images/login.svg" alt="login" class="img">
+		</div>
+	</header>
+
+  <main>
+    <h1 class="text-center">Login</h1>
+    <form class="form" action="" method="get">
+      <div class="d-left">
+        <div class="form-group">
+          <label for="email" class="form-label">이메일:</label>
+          <input type="email" class="form-control" placeholder="이메일를 입력하세요." name="email" autocomplete="off" value=""/>
+        </div>
+        <div class="form-group">
+          <label for="pwd" class="form-label">비밀번호:</label>
+          <input type="password" class="form-control" placeholder="비밀번호를 입력하세요." name="pwd" autocomplete="off" value=""/>
+        </div>
+      </div>
+      <div class="d-right">
+        <button type="submit" class="btn">Login</button>
+      </div>
+    </form>
+    <div class="d-flex">
+      <div class="flex-fill">
+        <button type="button" class="btn" onclick="location.href = 'user/Create.html';">회원가입</button>
+      </div>
+      <div class="flex-fill">
+        <button type="button" class="btn" onclick="location.href = 'Home.html';">취소</button>
+      </div>
+    </div>
+  </main>
+
+	<footer>
+    <a href="#" target="_blank" >
+      <h2>Shell<span>Folder</span></h2>
+    </a>
+  </footer>
+</body>
+</html>

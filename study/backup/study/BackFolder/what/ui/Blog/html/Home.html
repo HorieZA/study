@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	<link rel="stylesheet" type="text/css" href="../css/home.css" />
+</head>
+<body>
+	<header>
+		<div class="nav nav-left">
+			<img src="../images/account.svg" alt="logo" class="logo">
+		</div>
+		<div class="nav">
+			<a href="#">
+				<h1>SHELL<span>BLOG</span></h1>
+			</a>
+		</div>
+		<!-- <div class="nav nav-right">
+			<h2 onclick="location.href = 'user/Select.html';">사용자명</h2>
+			<img src="../images/logout.svg" alt="logout" class="img">
+		</div> -->
+		<div class="nav nav-right" onclick="location.href = 'Login.html';">
+			<img src="../images/login.svg" alt="login" class="img">
+		</div>
+	</header>
+
+  <main>
+    <div class="btn-group" >
+      <button type="button" class="btn" onclick="location.href = 'notice/Create.html';">글작성</button>
+    </div>
+    <div class="block">
+      <h1>목록이 없습니다.</h1>
+    </div>
+    <div class="list">
+      <section onclick="location.href = 'notice/Detail.html';">
+				<img src="../images/account.svg" alt="image">
+				<h1>제목</h1>
+				<div class="footer">
+					<h4>생성 날짜</h4>
+					<h4>조회수 <span>0</span></h4>
+				</div>
+				<p>설명</p>
+			</section>
+      <section onclick="location.href = 'notice/Detail.html';">
+				<img src="../images/account.svg" alt="image">
+				<h1>제목</h1>
+				<div class="footer">
+					<h4>생성 날짜</h4>
+					<h4>조회수 <span>0</span></h4>
+				</div>
+				<p>설명</p>
+			</section>
+    </div>
+  </main>
+
+	<footer>
+    <a href="#" target="_blank" >
+      <h2>Shell<span>Folder</span></h2>
+    </a>
+  </footer>
+
+
+	<!-- <div class="popup nonActive">
+    <div id="box" class="body-flex">
+      <h1><span>사용자명</span>님 안녕하세요</h1>
+      <h2>멋진 하루 입니다.</h2>
+    </div>
+  </div> -->
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+apiVersion: v1
+kind: PersistentVolume
+
+metadata:
+  name: local-pv
+
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+    # 5Gi를 준비하겠다는 의미
+  storageClassName: local-storage
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: /run/desktop/mnt/host/c/IDE/workspaces/WEB_STUDY-study/study/Y2026/02_Feb/26th/study39/html
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - docker-desktop
+
+
+# 등록하기
+# kubectl create -f vol-pv.yaml
+
+# 삭제하기
+# kubectl delete -f vol-pv.yaml
+
+# 확인하기
+# kubectl get configmaps

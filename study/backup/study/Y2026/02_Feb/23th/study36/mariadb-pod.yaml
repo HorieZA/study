@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: maria
+
+spec:
+  containers:
+  - image: mariadb:12.1.2
+    name: marid
+    ports:
+    - containerPort: 3306
+    env:
+      - name: MARIADB_ROOT_PASSWORD
+        value: passwd
+      - name: MARIADB_DATABASE
+        value: edu
+
+
+# mariadb Kubernetes(k8s) 실행하기
+# kubectl apply -f mariadb-pod.yaml
+# 포트 설정
+# kubectl port-forward pod/maria 3306:3306
+
+# 최종 확인
+# kubectl get pods
+
+# 최종 확인2
+# kubectl get pod fastapi -o wide
+
+# 포트 설정
+# kubectl port-forward pod/fastapi 8000:8000
+
+# 아래 방식을 실행하기 위한 apt 설치
+# curl http://10.1.0.9:8000/ 
+# apt update
+# apt install -y curl
+
+# ping test를 위한 apt 설치
+# apt update
+# apt install -y iputils-ping

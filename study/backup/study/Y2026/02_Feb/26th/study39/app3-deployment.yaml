@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app3-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app3
+  template:
+    metadata:
+      labels:
+        app: app3
+    spec:
+      containers:
+      - name: app3-container
+        image: app:3
+        ports:
+        - containerPort: 8000
+        env:
+        - name: ROOT_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: app3-config
+              key: ROOT_PATH
+
+
+      #   volumeMounts:
+      #   - name: app3-env
+      #     mountPath: "/etc/config"
+      # volumes:
+      # - name: app3-env
+      #   configMap:
+      #     name: app3-config
+
+# 등록하기
+# kubectl create -f app3-deployment.yaml
+
+# 삭제하기
+# kubectl delete -f app3-deployment.yaml
+
+# 확인하기
+# kubectl get deployments

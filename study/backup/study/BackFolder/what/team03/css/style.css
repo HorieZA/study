@@ -1,0 +1,81 @@
+/* 1. 기본 폰트 및 배경 설정 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --bg-color: #f8f9fa;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 2. 레이아웃 공통 규격 */
+.container {
+    max-width: 900px; /* 전체적인 콘텐츠 너비 통일 */
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.page-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.page-header h2 {
+    font-weight: 700;
+    color: #222;
+}
+
+/* 3. 카드 및 섹션 공통 스타일 */
+.content-card {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+}
+
+/* 4. 폼(Form) 요소 공통 규격 */
+.form-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: var(--primary-color);
+}
+
+/* 5. 상세보기 전용 (읽기 전용 텍스트) */
+/* 게시글 보기(8), 사용자 정보 보기(4)에서 사용 */
+.readonly-field {
+    background-color: #ffffff !important;
+    border: 1px solid #eee;
+    padding: 12px 15px;
+    border-radius: 8px;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+/* 6. 버튼 공통 규격 */
+.btn-custom {
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-main { background-color: var(--primary-color); color: white; }
+.btn-main:hover { background-color: #0b5ed7; color: white; }
+
+/* 7. 네비게이션 바 커스텀 */
+.navbar {
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}

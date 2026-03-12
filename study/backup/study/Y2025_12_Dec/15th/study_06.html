@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>폼 태그</title>
+        <style>
+        * {box-sizing: border-box;}
+        body {margin: 0; padding: 0;}
+        form {padding: 10px 30px;}
+        div {display: flex; padding: 5px 0;}
+        label {width: 50px;}
+        input {width: calc(100% - 50px);}
+        /* input {width: calc(100%);} */
+        #file {padding-bottom: 5px;}
+        button {background-color: #5865f2; width: 100%; padding: 5px 0; border: 0; border-radius: 5px;}
+        </style>
+    </head>
+    <body>
+        <form >
+            <div>
+                <label for="txt">글자:</label>
+                <input type="text" name="txt" id="txt" required placeholder="글자를 입력해주세요.">
+            </div>
+            <div>
+                <label for="num">숫자:</label>
+                <input type="number" name="num" id="num" required placeholder="10부터 입력해주세요." min="10" max="100" step="10">
+                <!-- <input type="submit"> -->
+            </div>
+            <div>
+                <label for="file">파일:</label>
+                <!-- <input type="file" name="file" id="file" style="display: none;"> -->
+                <!-- <input type="file" name="file" id="file" multiple> -->
+                <input type="file" name="file" id="file" multiple method="post" enctype="multipart/form-data">
+                <!-- <input type="file" name="file" id="file" required> -->
+            </div>
+            <button type="submit">업로드</button>
+        </form>
+    </body>
+</html>

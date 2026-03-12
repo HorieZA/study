@@ -1,0 +1,367 @@
+{
+  "name": "Study3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        736,
+        80
+      ],
+      "id": "1a1dee93-f519-452d-ac01-991168f16406",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/HorieZA",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8ns",
+          "mode": "list",
+          "cachedResultName": "n8ns",
+          "cachedResultUrl": "https://github.com/HorieZA/n8ns"
+        },
+        "filePath": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}.md",
+        "fileContent": "## 오늘은 n8n이 다 하는 날",
+        "commitMessage": "n8n 안습"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1152,
+        -320
+      ],
+      "id": "ea7f0341-b9ea-47bf-8c9c-02db0eb4bde0",
+      "name": "file 생성",
+      "webhookId": "b103e287-4ef9-4923-b581-0f5004c27bf8",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/HorieZA",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8ns",
+          "mode": "list",
+          "cachedResultName": "n8ns",
+          "cachedResultUrl": "https://github.com/HorieZA/n8ns"
+        },
+        "title": "=## {{ $now.format('yyyy-MM-dd HH:mm:ss') }}",
+        "body": "???? : 당신의 할 말은 파이썬으로 완벽한 서비스 프로그램을 완성하는 것입니다?\n???? : 누구냐 넌?",
+        "labels": [],
+        "assignees": []
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1152,
+        -128
+      ],
+      "id": "b6a43118-d4db-4fd3-8c8b-f968071593c4",
+      "name": "Issue 생성",
+      "webhookId": "e748c4d6-b7c9-4be5-a673-de5eaba83df9",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "organization",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/Turn-Sushi",
+          "mode": "url"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1152,
+        176
+      ],
+      "id": "6bdbb3f5-aa04-4646-a635-aa4979116145",
+      "name": "Get repositories for an organization",
+      "webhookId": "d13db9c7-cdb7-470d-bc79-6036f400abaa",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "list",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/HorieZA",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8ns",
+          "mode": "list",
+          "cachedResultName": "n8ns",
+          "cachedResultUrl": "https://github.com/HorieZA/n8ns"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1152,
+        16
+      ],
+      "id": "e54cb216-9beb-4487-b3ce-0878f9aa2fa2",
+      "name": "List files",
+      "webhookId": "f386d7de-d6fc-47ec-b3d9-d1a02ac63d11",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/HorieZA",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8ns",
+          "mode": "list",
+          "cachedResultName": "n8ns",
+          "cachedResultUrl": "https://github.com/HorieZA/n8ns"
+        },
+        "filePath": "={{ $json.path }}",
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1168,
+        416
+      ],
+      "id": "a17be679-05b5-414f-a6a5-97230f78facc",
+      "name": "Get a file",
+      "webhookId": "eff3e874-b661-425f-bd6b-7063dcd5cd3c",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "list",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/HorieZA",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8ns",
+          "mode": "list",
+          "cachedResultName": "n8ns",
+          "cachedResultUrl": "https://github.com/HorieZA/n8ns"
+        }
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        992,
+        416
+      ],
+      "id": "bcfabea2-a1e4-40c3-9b42-f819d892fe96",
+      "name": "List files1",
+      "webhookId": "6cf206f7-a6a5-462e-8feb-3d16311505f4",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        1344,
+        416
+      ],
+      "id": "05c225ee-6c3a-4ab2-aabe-1157fb283edd",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.data += \"\\n - 수정 추가\";\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1536,
+        416
+      ],
+      "id": "03bce60f-bd1f-4170-ac5a-8cae53608ef9",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": {
+          "__rl": true,
+          "value": "https://github.com/HorieZA",
+          "mode": "url"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8ns",
+          "mode": "list",
+          "cachedResultName": "n8ns",
+          "cachedResultUrl": "https://github.com/HorieZA/n8ns"
+        },
+        "filePath": "={{ $('Get a file').item.json.path }}",
+        "fileContent": "={{ $json.data }}",
+        "commitMessage": "={{ $now.format('yyyy-MM-dd') }} 내용 추가"
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        1712,
+        416
+      ],
+      "id": "f334875c-d026-4b4c-a4b9-eb6d4e6fbe98",
+      "name": "Edit a file",
+      "webhookId": "aeadf555-e130-453a-8be6-14a3aed1b3d8",
+      "credentials": {
+        "githubApi": {
+          "id": "AkVOToA7XAEz2P1T",
+          "name": "GitHub account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "file 생성",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Issue 생성",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get repositories for an organization",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "List files",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "List files1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List files1": {
+      "main": [
+        [
+          {
+            "node": "Get a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a file": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Edit a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "34b728d6-51c3-480e-98ec-64ee4a896dea",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a8f05ce378d2c8a1985aff054735f2b87482025e256b72257388e7fa7904e7f6"
+  },
+  "id": "LF1GZBnhs3GpXnFK",
+  "tags": []
+}

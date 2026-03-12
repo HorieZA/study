@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+}
+
+body {
+  background-color: #35495E;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  color: #fff;
+  font-size: 28px;
+}
+
+header h1 span {
+  color: #42B883;
+}

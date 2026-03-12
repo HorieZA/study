@@ -1,0 +1,399 @@
+{
+  "name": "study7",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "첨부파일",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "파일",
+              "fieldType": "file",
+              "fieldName": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        -576,
+        -192
+      ],
+      "id": "a895fd89-6822-4f29-a94d-13acd8e36486",
+      "name": "On form submission",
+      "webhookId": "6ab65547-df81-4bdf-8de8-d9047c1979f9"
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "file",
+        "name": "={{ $json.file[0].filename }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1XXXH8hwH1QUOk9CzMWhszbuvDFbEiJAM",
+          "mode": "list",
+          "cachedResultName": "n8n_img_melon",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1XXXH8hwH1QUOk9CzMWhszbuvDFbEiJAM"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -368,
+        -192
+      ],
+      "id": "1ba5957f-c163-4fd1-a11e-0dff3597740e",
+      "name": "Upload file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dmDvQhOwzeV9Ovjb",
+          "name": "Google Drive account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bb115392-c3b7-4a67-98ea-189813d38343",
+              "name": "filename",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "b1f7c6eb-9750-4e94-8d12-5eed2667ae8e",
+              "name": "dir",
+              "value": "=n8n_img_melon/{{ $now.format('yyyy-MM-dd') }}",
+              "type": "string"
+            },
+            {
+              "id": "9d5204e2-1fc4-4a09-a522-046fac88dbd7",
+              "name": "origin",
+              "value": "={{ $json.file[0].filename }}",
+              "type": "string"
+            },
+            {
+              "id": "6124df9b-2626-4e3f-af13-0d82b9a87c2c",
+              "name": "mimetype",
+              "value": "={{ $json.file[0].mimetype }}",
+              "type": "string"
+            },
+            {
+              "id": "8d464e83-815c-4ab2-8688-7541889e6292",
+              "name": "size",
+              "value": "={{ $json.file[0].size }}",
+              "type": "number"
+            },
+            {
+              "id": "6271fc14-d7a2-4ef8-9a34-3f8f655cfa2b",
+              "name": "dir2",
+              "value": "={{ $now.format('yyyy-MM-dd') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -368,
+        32
+      ],
+      "id": "8008f633-fda0-48d4-8413-93be88bc9572",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -576,
+        32
+      ],
+      "id": "28ea6f36-2c66-4588-ac87-d1541c2665f6",
+      "name": "When clicking ‘Execute workflow’",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.filename = Math.floor(Math.random()*16777215).toString(16).padStart(7, '0');\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        32
+      ],
+      "id": "bf52fa01-ef17-44d4-9d54-3632e397b20d",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "table": {
+          "__rl": true,
+          "value": "files",
+          "mode": "list",
+          "cachedResultName": "files"
+        },
+        "dataMode": "defineBelow",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "filename",
+              "value": "={{ $json.filename }}"
+            },
+            {
+              "column": "origin",
+              "value": "={{ $json.origin }}"
+            },
+            {
+              "column": "dir",
+              "value": "={{ $json.dir }}"
+            },
+            {
+              "column": "mimetype",
+              "value": "={{ $json.mimetype }}"
+            },
+            {
+              "column": "size",
+              "value": "={{ $json.size }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.5,
+      "position": [
+        32,
+        128
+      ],
+      "id": "0bb15e27-6692-4eaf-ac44-c34db39fc8d6",
+      "name": "Insert rows in a table1",
+      "credentials": {
+        "mySql": {
+          "id": "J1WhCJd6PsNopytx",
+          "name": "MySQL account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "file",
+        "name": "={{ $json.filename }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "={{ $json.dir }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        288,
+        32
+      ],
+      "id": "33de6b1c-9e2d-449d-a013-08e185869eab",
+      "name": "Upload file1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dmDvQhOwzeV9Ovjb",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "name": "={{ $input.first().json.dir2 }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1XXXH8hwH1QUOk9CzMWhszbuvDFbEiJAM",
+          "mode": "list",
+          "cachedResultName": "n8n_img_melon",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1XXXH8hwH1QUOk9CzMWhszbuvDFbEiJAM"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        128,
+        -160
+      ],
+      "id": "688c36c5-3cff-40da-beb6-a8bf516fff21",
+      "name": "Create folder",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dmDvQhOwzeV9Ovjb",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "file",
+        "name": "={{ $json.filename }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1XXXH8hwH1QUOk9CzMWhszbuvDFbEiJAM",
+          "mode": "list",
+          "cachedResultName": "n8n_img_melon",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1XXXH8hwH1QUOk9CzMWhszbuvDFbEiJAM"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        320,
+        -224
+      ],
+      "id": "e6061743-8602-431c-a33e-6128330d2f87",
+      "name": "Upload file2",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "dmDvQhOwzeV9Ovjb",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const folderName = $input.first().json.dir2;\n\nif ($input.all().length > 0) {\n  return [];\n}\n\nreturn [\n  {\n    json: {\n      dir: folderName\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -16,
+        -160
+      ],
+      "id": "9b64e77f-9c00-4bdc-9706-c12c728e8c63",
+      "name": "Code in JavaScript1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Insert rows in a table1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Upload file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create folder": {
+      "main": [
+        [
+          {
+            "node": "Upload file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Create folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "25d99fe5-6a34-452f-bb67-f1931675bceb",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a8f05ce378d2c8a1985aff054735f2b87482025e256b72257388e7fa7904e7f6"
+  },
+  "id": "HuVJC9dFuD6Joiu5",
+  "tags": []
+}

@@ -1,0 +1,15 @@
+docker run --network=my-net -d -p 80:80 -v./index.html:/usr/share/nginx/html/index.html --name web nginx:1.28
+
+-d => 백그라운드로 실행
+-p => 포트 포딩(호스트)
+80:80 => 윈도우:독호 컨테이너
+--name web => 독호 컨테이너 이름 
+nginx:1.28 => 사용할 이미지 이름은 제일 마지막에
+
+$ docker run -d -it -- name devtest -v /storage/source/ct03-bind01:/storage:ro nginx
+-v => 앞의 대상에 마운트를 한다
+ 첫번째 -/storage/source/ct03-bind01 : 호스트 시스템의 파일 또는 디렉터리에 대한 절대경로
+- 두번째 - /storage : 파일 또는 디렉터리가 컨테이너에 마운트 되는 경로
+- 세번째 - ro : 선택사항이며, ro, z 및 Z와 같은 쉼표로 구분된 옵션 목록입니다. read only를 의미한다.
+
+./index.html:/usr/share/nginx/html/index.html

@@ -1,0 +1,21 @@
+{
+  "name": "20251226",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "251222": "node test_01.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "run": "node index.js",
+    "시작": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

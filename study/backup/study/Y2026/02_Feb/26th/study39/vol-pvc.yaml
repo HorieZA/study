@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+      # 최대 16Gi 까지 사용하겠다는 의미
+  storageClassName: local-storage
+
+# 등록하기
+# kubectl create -f vol-pvc.yaml
+
+# 삭제하기
+# kubectl delete -f vol-pvc.yaml
+
+# 확인하기
+# kubectl get configmaps

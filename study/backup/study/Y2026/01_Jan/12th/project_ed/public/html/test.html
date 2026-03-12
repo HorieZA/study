@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WordBooks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .word-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      }
+      .word-item.completed span {
+        text-decoration: line-through;
+        color: #6c757d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="word-container">
+      <h3 class="text-center mb-4">단어장</h3>
+
+      <!-- 입력 및 수정 영역 -->
+      <form class="input-group mb-3">
+        <input type="text" name="word" class="form-control" placeholder="단어를 입력하세요" required />
+        <button type="submit" class="btn btn-primary">추가</button>
+      </form>
+
+      <!-- 검색 영역 -->
+      <input type="text" name="search" class="form-control mb-3" placeholder="검색어를 입력하세요" onkeyup="" />
+
+      <!-- 목록 -->
+      <ul class="list-group">
+        <!-- 단어를 여기에 추가됩니다 -->
+        <li class="list-group-item d-flex justify-content-between align-items-center word-item">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" onchange="" />
+            <span class="ms-2">반복문 정리하기</span>
+          </div>
+          <button class="btn btn-sm btn-outline-danger" onclick="">삭제</button>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center word-item completed">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" onchange="" checked />
+            <span class="ms-2">조건문 정리완료</span>
+          </div>
+          <button class="btn btn-sm btn-outline-danger" onclick="">삭제</button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,391 @@
+{
+  "name": "study5",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -464,
+        -16
+      ],
+      "id": "6c1d3d47-e5b6-49a5-81ed-80008dc9d65b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1IxrjpyeBQZ5Ic9UpS8rLr5xmpFHFztJ0TmY2mxVg1I4",
+          "mode": "list",
+          "cachedResultName": "n8n강의",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1IxrjpyeBQZ5Ic9UpS8rLr5xmpFHFztJ0TmY2mxVg1I4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 680279410,
+          "mode": "list",
+          "cachedResultName": "호리에상",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1IxrjpyeBQZ5Ic9UpS8rLr5xmpFHFztJ0TmY2mxVg1I4/edit#gid=680279410"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {
+            "code": "={{ $json.genre }}",
+            "img": "={{ $json.img }}",
+            "title": "={{ $json.title }}",
+            "album": "={{ $json.album }}",
+            "cnt": "={{ $json.cnt }}",
+            "regDate": "={{ $json.regDate }}",
+            "modDate": "={{ $json.modDate }}",
+            "id": "={{ $json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "code",
+              "displayName": "code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "img",
+              "displayName": "img",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "album",
+              "displayName": "album",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "cnt",
+              "displayName": "cnt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "regDate",
+              "displayName": "regDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "modDate",
+              "displayName": "modDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        -208
+      ],
+      "id": "65327ffb-8fec-4304-bf15-fc3a252d2107",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rBjZpsF4SJ6i4AyQ",
+          "name": "Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "table": {
+          "__rl": true,
+          "value": "melon",
+          "mode": "list",
+          "cachedResultName": "melon"
+        },
+        "limit": 10,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.5,
+      "position": [
+        -272,
+        -16
+      ],
+      "id": "ad0d3b75-46ea-42a0-8e55-432966b8d726",
+      "name": "Select rows from a table",
+      "credentials": {
+        "mySql": {
+          "id": "J1WhCJd6PsNopytx",
+          "name": "MySQL account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1IxrjpyeBQZ5Ic9UpS8rLr5xmpFHFztJ0TmY2mxVg1I4",
+          "mode": "list",
+          "cachedResultName": "n8n강의",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1IxrjpyeBQZ5Ic9UpS8rLr5xmpFHFztJ0TmY2mxVg1I4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 680279410,
+          "mode": "list",
+          "cachedResultName": "호리에상",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1IxrjpyeBQZ5Ic9UpS8rLr5xmpFHFztJ0TmY2mxVg1I4/edit#gid=680279410"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "img": "==image(\"{{ $json.img }}\")",
+            "title": "={{ $json.title }}",
+            "album": "={{ $json.album }}",
+            "cnt": "={{ $json.cnt }}",
+            "regDate": "={{ $json.regDate }}",
+            "modDate": "={{ $json.modDate }}",
+            "name": "={{ $json.name }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "img",
+              "displayName": "img",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "album",
+              "displayName": "album",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "cnt",
+              "displayName": "cnt",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "regDate",
+              "displayName": "regDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "modDate",
+              "displayName": "modDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        -16
+      ],
+      "id": "e49caacd-20ad-4551-ac50-05a9ff6a9442",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "rBjZpsF4SJ6i4AyQ",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT n.`name`, s.`id`, s.`img`, s.`title`, s.`album`, s.`cnt`, s.`regDate`, s.`modDate`\nFROM edu.`melon` AS s\nINNER JOIN edu.`category` AS n\nON (s.`genre` = n.`code`)",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.5,
+      "position": [
+        -272,
+        144
+      ],
+      "id": "e2f3c73e-ca76-42a2-8847-3fa977926887",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "mySql": {
+          "id": "J1WhCJd6PsNopytx",
+          "name": "MySQL account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Update row in sheet": {
+      "main": [
+        []
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "e03250ed-b1f2-4a92-b66f-79bc0ec92d07",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a8f05ce378d2c8a1985aff054735f2b87482025e256b72257388e7fa7904e7f6"
+  },
+  "id": "WQCwFNPGx38B3fj7",
+  "tags": []
+}

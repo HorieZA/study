@@ -1,0 +1,164 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "guildIds": [
+          "1469140948385792194"
+        ],
+        "categoryIds": [
+          "1469140949878837289"
+        ],
+        "channelIds": [
+          "1481224752499523645"
+        ],
+        "pattern": "every",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-discord-trigger-new.discordTrigger",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        -32
+      ],
+      "id": "cd67a705-e644-410b-bb7d-3750e643725b",
+      "name": "Discord Trigger",
+      "credentials": {
+        "discordBotTriggerApi": {
+          "id": "sCQ99mm3TeOKMsee",
+          "name": "Discord Bot Trigger account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.content }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -112,
+        -32
+      ],
+      "id": "ea05016a-57f6-49c7-aa4a-5801f8a2eb98",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "gemma3:4b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        176
+      ],
+      "id": "8e21c087-9f0c-409d-99e5-6b3bbcec4a4d",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "sGS9O4T0AaR2EILc",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $input.first().json.output;\nconst max = 1900;\n\nconst paragraphs = text.split(\"\\n\\n\");\nlet messages = [];\nlet current = \"\";\n\nfor (const p of paragraphs) {\n  if ((current + p).length > max) {\n    messages.push(current);\n    current = p;\n  } else {\n    current += \"\\n\\n\" + p;\n  }\n}\n\nmessages.push(current);\n\nreturn messages.map(m => ({json:{content:m}}));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        -32
+      ],
+      "id": "bec376ac-42d1-43a1-94f7-920cd546f6c6",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.content }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        448,
+        -32
+      ],
+      "id": "2ce32d55-2ae2-4a84-a644-33e3236ef0df",
+      "name": "Discord",
+      "webhookId": "6fdf2bfa-a197-444c-a95b-9247bdeeecf9",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "XV0FsWxg1lNbTVIC",
+          "name": "Discord Webhook account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Discord Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5e291485-a540-44e7-8e27-fa0a1c010c30",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a8f05ce378d2c8a1985aff054735f2b87482025e256b72257388e7fa7904e7f6"
+  },
+  "id": "nHj4Mj7fBkYiDp9e",
+  "tags": []
+}
