@@ -1,1 +1,0 @@
-VITE_APP_FASTAPI_URL=http://fastapi.myapp.com:8000
